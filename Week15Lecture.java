@@ -19,7 +19,7 @@ public class Week15Lecture implements ActionListener {
 		JButton button4 = new JButton ("Ask me a new question");
 				
 		// BorderLayout B = new BorderLayout(); 
-		GridLayout g  = new GridLayout(2,2);
+		GridLayout g  = new GridLayout(3,1);
 		
 		//panel.setLayout()null;
 		//button.setLocation(10,10);
