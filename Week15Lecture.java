@@ -36,7 +36,7 @@ public class Week15Lecture implements ActionListener {
 		window.setContentPane(panel);
 		
 		window.setTitle("Hello my Dudes");
-		window.setSize(500, 500);
+		window.setSize(750, 500);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 	}
