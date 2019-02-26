@@ -16,7 +16,7 @@ public class Week15Lecture implements ActionListener {
 		JButton button = new JButton ("<");
 		JButton button2 = new JButton (">");
 		JButton button3 = new JButton ("=");
-		JButton button4 = new JButton ("Ask me a new question");
+		JButton button4 = new JButton ("Ask me a question");
 				
 		// BorderLayout B = new BorderLayout(); 
 		GridLayout g  = new GridLayout(3,1);
