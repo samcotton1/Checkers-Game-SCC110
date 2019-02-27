@@ -22,6 +22,7 @@ public class Week15Lecture implements ActionListener {
 		GridLayout g  = new GridLayout(3,3);
 		
 		button.setLocation(10,10);
+		button4.setLocation(250, 250);
 		
 		button.addActionListener(this);
 		
