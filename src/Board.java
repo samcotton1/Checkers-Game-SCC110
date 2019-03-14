@@ -22,17 +22,12 @@ public class Board implements ActionListener {
 	private int PieceColour = 1;
 	
 	public Board(){
-				
-			frame.setTitle("Checkers");
-			backBoard.setLayout(null);
-			
 			for (int i = 0; i < 8; i++) {
 				for(int j = 0; j < 8; j++) {
 					
 					SquareColour++;
 					SquareBoard[counter] = new Square(backBoard, x, y, SquareColour, PieceColour, counter);
-					SquareBoard[counter].addActionListener(this);
-					SquareBoard[counter].setActionCommand(Integer.toString(i));
+					SquareBoard[counter].GetButton().addActionListener(this);
 					counter++;
 					x += 100;
 				}
@@ -43,17 +38,37 @@ public class Board implements ActionListener {
 
 								
 			}
+			
+			backBoard.setLayout(null);
+			frame.setTitle("Checkers");
 			frame.setContentPane(backBoard);
 			frame.setSize(900, 900);
 			frame.setVisible(true);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );	
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );
+			
+			
 			}
 
 			public void actionPerformed(ActionEvent e){
 				
-				System.out.println("1");				
-				System.out.print(e.getSource());
-				
-				
-				}	
+				for(int i = 1; i < SquareBoard.length; i++) {
+					if(e.getSource() == SquareBoard[i].GetButton()) {
+					
+						int intArray[];    //declaring array
+						intArray = new int[2];
+						
+						int j = 0;
+						intArray[j] = i;
+						intArray[j+1] = i;
+						
+						
+						System.out.print(intArray[0] + "\n");
+						System.out.print(intArray[1] + "\n");
+						
+						//Square.MoveTo(i);
+						
+						
+					}
+				}				
+			}	
 	}
