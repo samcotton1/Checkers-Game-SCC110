@@ -91,8 +91,12 @@ public class Square {
 		
 	}
 
-	public void addActionListener(Board board) {
-		// TODO Auto-generated method stub
+	public int addActionListener(Board board) {
+		return PiecePosition;
+	}
+
+	public int setActionCommand(String string) {
+		return PiecePosition;
 		
 	}
  }

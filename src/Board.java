@@ -32,6 +32,7 @@ public class Board implements ActionListener {
 					SquareColour++;
 					SquareBoard[counter] = new Square(backBoard, x, y, SquareColour, PieceColour, counter);
 					SquareBoard[counter].addActionListener(this);
+					SquareBoard[counter].setActionCommand(Integer.toString(i));
 					counter++;
 					x += 100;
 				}
@@ -49,11 +50,10 @@ public class Board implements ActionListener {
 			}
 
 			public void actionPerformed(ActionEvent e){
-
-				Object Source = e.getSource();
-				Square Button = (Square) Source;
 				
-				System.out.println(Button.GetPosition());
+				System.out.println("1");				
+				System.out.print(e.getSource());
+				
 				
 				}	
 	}
