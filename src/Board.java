@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Board implements ActionListener {
-
+	int count = 1;
 	public static void main(String args[]) {
 		Board g = new Board();
 }
@@ -53,22 +53,24 @@ public class Board implements ActionListener {
 				
 				for(int i = 1; i < SquareBoard.length; i++) {
 					if(e.getSource() == SquareBoard[i].GetButton()) {
-					
-						int intArray[];    //declaring array
-						intArray = new int[2];
 						
-						int j = 0;
-						intArray[j] = i;
-						intArray[j+1] = i;
+						int Pos = i;
+						Square Squaretemp = null;
+						Square Squaretemp2; 
 						
-						
-						System.out.print(intArray[0] + "\n");
-						System.out.print(intArray[1] + "\n");
-						
-						//Square.MoveTo(i);
-						
-						
+						if (count == 1) {
+							Squaretemp = SquareBoard[Pos];
+							System.out.print(Pos + "\n");
+							Pos = 0;
+						}
+						if (count == 2) {
+							Squaretemp2 = SquareBoard[Pos];
+							System.out.print(Pos + "\n");
+							Square.MoveTo(Squaretemp, Squaretemp2);
+						}
 					}
-				}				
-			}	
+				}
+				count = 2;
+			}
+
 	}

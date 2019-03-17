@@ -88,9 +88,14 @@ public class Square {
 		
 	}
 
-	public static void MoveTo(int i) {
-		
-		System.out.print(i);
-
+	public static void MoveTo(Square squareBoard, Square squareBoard2) {
+		System.out.print("We get here ");
+		System.out.print( squareBoard + "\n" + squareBoard2);
+				
+		//if (Position2 == Position1 - 7 || Position2 == Position1 - 9) {
+	
+		//	System.out.print("It works Biach");
+			
+		//}
 	}
  }
