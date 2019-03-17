@@ -4,6 +4,9 @@ import java.awt.event.*;
 
 public class Board implements ActionListener {
 	int count = 1;
+	Square Squaretemp1;
+	Square Squaretemp2;
+	
 	public static void main(String args[]) {
 		Board g = new Board();
 }
@@ -50,27 +53,21 @@ public class Board implements ActionListener {
 			}
 
 			public void actionPerformed(ActionEvent e){
-				
+			
 				for(int i = 1; i < SquareBoard.length; i++) {
 					if(e.getSource() == SquareBoard[i].GetButton()) {
-						
-						int Pos = i;
-						Square Squaretemp = null;
-						Square Squaretemp2; 
-						
-						if (count == 1) {
-							Squaretemp = SquareBoard[Pos];
-							System.out.print(Pos + "\n");
-							Pos = 0;
-						}
-						if (count == 2) {
-							Squaretemp2 = SquareBoard[Pos];
-							System.out.print(Pos + "\n");
-							Square.MoveTo(Squaretemp, Squaretemp2);
-						}
+							if (count == 1) {
+							Squaretemp1 = SquareBoard[i];
+							System.out.print(Squaretemp1);
+							count = 2;
+							} 
+							if (count == 2) {
+							Squaretemp2 = SquareBoard[i];
+							Square.MoveTo(Squaretemp1, Squaretemp2);
+							count = 1;
+							}
 					}
-				}
-				count = 2;
+					
+				}				
 			}
-
 	}

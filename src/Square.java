@@ -3,7 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Square {
-  JButton CheckerBoard = new JButton(); 						// Creates a new JButton Called CheckerBoard
+	static int x = 1;
+	static int sam = 0;
+	static int john = 0;
+	static int dood = 0; 
+	static int bro = 0;
+  static JButton CheckerBoard = new JButton(); 						// Creates a new JButton Called CheckerBoard
   
   public int PiecePosition = 0;
   private int positionX; 										// Creates a variable for the X position called positionX
@@ -70,12 +75,17 @@ public class Square {
 	
 	}
 	
-	public int GetPosition() {
+	public int GetX() {
 		
-		return PiecePosition;
+		return positionX;
 		
 	}
 	
+	public int GetY() {
+		
+		return positionY;
+		
+	}	
 	public JButton GetButton() {
 		
 		return CheckerBoard;
@@ -89,13 +99,28 @@ public class Square {
 	}
 
 	public static void MoveTo(Square squareBoard, Square squareBoard2) {
-		System.out.print("We get here ");
-		System.out.print( squareBoard + "\n" + squareBoard2);
-				
-		//if (Position2 == Position1 - 7 || Position2 == Position1 - 9) {
-	
-		//	System.out.print("It works Biach");
-			
-		//}
+		
+		if (x == 1) {
+		 sam = squareBoard.BoardStatus;
+		 dood = squareBoard.PiecePosition;
+		 x = 2;
+		}
+		else if (x == 2)
+		{
+		 john = squareBoard2.BoardStatus;
+		 bro = squareBoard2.PiecePosition;
+		 x = 1;
+		}
+		
+		System.out.print(sam + "\n" + john + "\n");
+		System.out.print("\n" + dood + "\n" + bro);	
+		if (sam != 0 && john != 0) {
+		System.out.print(sam + "\n" + john + "\n");
+		System.out.print("\n" + dood + "\n" + bro);	
+		
+		squareBoard.PiecePosition = bro;
+		squareBoard2.PiecePosition = dood;
+		
+		}
 	}
  }
