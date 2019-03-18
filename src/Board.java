@@ -3,18 +3,19 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Board implements ActionListener {	
-	public  Square Squaretemp1;
 	private JFrame frame = new JFrame();
 	private JPanel backBoard = new JPanel();
 	
 	Square[] SquareBoard = new Square[65];
+	Square SquareTemp1;
+	Square SquareTemp2;
 	
 	private int x = 0;
 	private int y = 0;
+	int Count = 1;
 	
 	private int SquareColour = 0; 
 	private int counter = 1;
-	
 	private int PieceColour = 1;
 	
 	public Board(){
@@ -23,7 +24,7 @@ public class Board implements ActionListener {
 					
 					SquareColour++;
 					SquareBoard[counter] = new Square(backBoard, x, y, SquareColour, PieceColour, counter);
-					SquareBoard[counter].GetButton().addActionListener(this);
+					SquareBoard[counter].getButton().addActionListener(this);
 					counter++;
 					x += 100;
 				}
@@ -45,22 +46,37 @@ public class Board implements ActionListener {
 			
 			}
 
-			public void actionPerformed(ActionEvent e){
-				for(int j = 1; j < SquareBoard.length; j++) {
-					if(e.getSource() == SquareBoard[j].GetButton()) {
-						
-							Squaretemp1 = SquareBoard[j];
-							System.out.print(Squaretemp1);
-							Square.MoveTo(Squaretemp1);
-							
-					}
-					System.out.print("It doesn't find the If Statement" + "\n");	
-					break;
-					}
-				}
-public static void main(String args[]) {
+			
+	public static void main(String args[]) {
 	
-	Board g = new Board();
+		Board g = new Board();
 	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		for(int i = 1; i < SquareBoard.length; i++) {
+			if(e.getSource() == SquareBoard[i].getButton()) {
+				
+				if (Count == 1) {
+					
+					SquareTemp1 = SquareBoard[i];
+				}
+				
+				if (Count == 2) {
+					
+					SquareTemp2 = SquareBoard[i];
+					System.out.print(SquareTemp2);
+					Square.MoveTo(SquareTemp1, SquareTemp2);					
+				}
+				else
+				{
+					Count++;
+				}
+				//System.out.print(Count);
+			}
+		}
+	}
+	
 }
 	

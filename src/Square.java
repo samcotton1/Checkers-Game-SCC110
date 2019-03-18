@@ -4,11 +4,7 @@ import java.awt.event.*;
 
 public class Square {
 	static int x = 1;
-	static int sam = 0;
-	static int john = 0;
-	static int dood = 0; 
-	static int bro = 0;
-  static JButton CheckerBoard = new JButton(); 						// Creates a new JButton Called CheckerBoard
+	JButton CheckerBoard = new JButton(); 						// Creates a new JButton Called CheckerBoard
   
   public int PiecePosition = 0;
   private int positionX; 										// Creates a variable for the X position called positionX
@@ -21,7 +17,7 @@ public class Square {
     	BoardStatus = Piece;									//Takes the Variable Piece from the Board class and stores it in the PieceStatus to be used to see what needs to go in each button
     	PiecePosition = Counter;    							//Takes the counter variable and stores it in PiecePosition to be used a an ID for each button 
     	
-	  if (SquareColour % 2 == 0) { 								// Determines if the variable colour is odd or even
+	  if (SquareColour % 2 == 1) { 								// Determines if the variable colour is odd or even
 		  BoardStatus = 1;										//1 means that the status is a blank black board piece 
 		 BlackBoard(); 											
 		  
@@ -29,12 +25,12 @@ public class Square {
 		  	BoardStatus = 2;
 		  	WhiteBoard();
 		  	// White Piece Input Onto Board 
-			if (BoardStatus == 2 && PiecePosition >= 40) {
+			if (BoardStatus == 2 && PiecePosition >= 41) {
 				  BoardStatus = 3;
 				  WhitePiece();
 			  } 
 			//Red Piece Input Onto Board
-			if (BoardStatus == 2 && PiecePosition <= 25) {
+			if (BoardStatus == 2 && PiecePosition <= 24) {
 				BoardStatus = 4;
 				  RedPiece();	
 			}
@@ -86,7 +82,7 @@ public class Square {
 		return positionY;
 		
 	}	
-	public JButton GetButton() {
+	public JButton getButton() {
 		
 		return CheckerBoard;
 		
@@ -98,8 +94,14 @@ public class Square {
 		
 	}
 
-	public static void MoveTo(Square squareBoard) {
+	public static void MoveTo(Square squareBoard, Square squareBoard2) {
 		
+		 int sam = 0;
+		 int john = 0;
+		 int dood = 0; 
+		 int bro = 0;
+		 
+		 
 		if (x == 1) {
 		 sam = squareBoard.BoardStatus;
 		 dood = squareBoard.PiecePosition;
@@ -107,20 +109,22 @@ public class Square {
 		}
 		else if (x == 2)
 		{
-		// john = squareBoard2.BoardStatus;
-		 //bro = squareBoard2.PiecePosition;
+		john = squareBoard2.BoardStatus;
+		bro = squareBoard2.PiecePosition;
 		 x = 1;
 		}
 		
-		System.out.print(sam + "\n" + john + "\n");
-		System.out.print("\n" + dood + "\n" + bro);	
-		if (sam != 0 && john != 0) {
-		System.out.print(sam + "\n" + john + "\n");
-		System.out.print("\n" + dood + "\n" + bro);	
+		System.out.print(sam + "\n" + dood + "\n");
+		System.out.print("\n" + john + "\n" + bro);	
+		
+		
+		//if (sam != 0 && john != 0) {
+		//System.out.print(sam + "\n" + john + "\n");
+		//System.out.print("\n" + dood + "\n" + bro);	
 		
 		squareBoard.PiecePosition = bro;
 		//squareBoard.PiecePosition = dood;
 		
-		}
+		//}
 	}
  }
