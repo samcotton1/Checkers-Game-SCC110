@@ -2,15 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Board implements ActionListener {
-	int count = 1;
-	Square Squaretemp1;
-	Square Squaretemp2;
-	
-	public static void main(String args[]) {
-		Board g = new Board();
-}
-	
+public class Board implements ActionListener {	
+	public  Square Squaretemp1;
 	private JFrame frame = new JFrame();
 	private JPanel backBoard = new JPanel();
 	
@@ -53,21 +46,21 @@ public class Board implements ActionListener {
 			}
 
 			public void actionPerformed(ActionEvent e){
-			
-				for(int i = 1; i < SquareBoard.length; i++) {
-					if(e.getSource() == SquareBoard[i].GetButton()) {
-							if (count == 1) {
-							Squaretemp1 = SquareBoard[i];
+				for(int j = 1; j < SquareBoard.length; j++) {
+					if(e.getSource() == SquareBoard[j].GetButton()) {
+						
+							Squaretemp1 = SquareBoard[j];
 							System.out.print(Squaretemp1);
-							count = 2;
-							} 
-							if (count == 2) {
-							Squaretemp2 = SquareBoard[i];
-							Square.MoveTo(Squaretemp1, Squaretemp2);
-							count = 1;
-							}
+							Square.MoveTo(Squaretemp1);
+							
 					}
-					
-				}				
-			}
+					System.out.print("It doesn't find the If Statement" + "\n");	
+					break;
+					}
+				}
+public static void main(String args[]) {
+	
+	Board g = new Board();
 	}
+}
+	

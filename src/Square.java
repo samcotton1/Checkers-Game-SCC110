@@ -98,7 +98,7 @@ public class Square {
 		
 	}
 
-	public static void MoveTo(Square squareBoard, Square squareBoard2) {
+	public static void MoveTo(Square squareBoard) {
 		
 		if (x == 1) {
 		 sam = squareBoard.BoardStatus;
@@ -107,8 +107,8 @@ public class Square {
 		}
 		else if (x == 2)
 		{
-		 john = squareBoard2.BoardStatus;
-		 bro = squareBoard2.PiecePosition;
+		// john = squareBoard2.BoardStatus;
+		 //bro = squareBoard2.PiecePosition;
 		 x = 1;
 		}
 		
@@ -119,7 +119,7 @@ public class Square {
 		System.out.print("\n" + dood + "\n" + bro);	
 		
 		squareBoard.PiecePosition = bro;
-		squareBoard2.PiecePosition = dood;
+		//squareBoard.PiecePosition = dood;
 		
 		}
 	}
