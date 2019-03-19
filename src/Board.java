@@ -57,23 +57,25 @@ public class Board implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		for(int i = 1; i < SquareBoard.length; i++) {
 			if(e.getSource() == SquareBoard[i].getButton()) {
-				
-				if (Count == 1) {
-					
-					SquareTemp1 = SquareBoard[i];
-				}
-				
 				if (Count == 2) {
 					
 					SquareTemp2 = SquareBoard[i];
-					System.out.print(SquareTemp2);
-					Square.MoveTo(SquareTemp1, SquareTemp2);					
+					Square.MoveTo(SquareTemp1, SquareTemp2);
+					Count = 1;
+					break;
 				}
 				else
 				{
-					Count++;
+					//Count++;
 				}
-				//System.out.print(Count);
+
+				if (Count == 1) {
+					
+					SquareTemp1 = SquareBoard[i];
+					Count = 2;
+				}
+				
+				System.out.print(Count);
 			}
 		}
 	}

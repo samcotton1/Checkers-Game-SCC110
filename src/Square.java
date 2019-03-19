@@ -31,8 +31,8 @@ public class Square {
 			  } 
 			//Red Piece Input Onto Board
 			if (BoardStatus == 2 && PiecePosition <= 24) {
-				BoardStatus = 4;
-				  RedPiece();	
+				//BoardStatus = 4;
+				  //RedPiece();	
 			}
 	  }
 	  CheckerBoard.setSize(width, height);
@@ -94,37 +94,26 @@ public class Square {
 		
 	}
 
-	public static void MoveTo(Square squareBoard, Square squareBoard2) {
-		
-		 int sam = 0;
-		 int john = 0;
-		 int dood = 0; 
-		 int bro = 0;
+	public static void MoveTo(Square squareBoard1, Square squareBoard2) {
+		 int SB1Pp = 0; 
+		 int SB2Pp = 0;
+		 int SB1PosX = 0;
+		 int SB1PosY = 0;
+		 int SB2PosX = 0;
+		 int SB2PosY = 0;
 		 
 		 
-		if (x == 1) {
-		 sam = squareBoard.BoardStatus;
-		 dood = squareBoard.PiecePosition;
-		 x = 2;
-		}
-		else if (x == 2)
-		{
-		john = squareBoard2.BoardStatus;
-		bro = squareBoard2.PiecePosition;
-		 x = 1;
-		}
+		SB1PosX = squareBoard1.positionX;
+		SB1PosY = squareBoard1.positionY;
 		
-		System.out.print(sam + "\n" + dood + "\n");
-		System.out.print("\n" + john + "\n" + bro);	
+		SB2PosX = squareBoard2.positionX;
+		SB2PosY = squareBoard2.positionY;	
+				
+		squareBoard2.CheckerBoard.setLocation(SB1PosX, SB1PosY);
+		squareBoard1.CheckerBoard.setLocation(SB2PosX, SB2PosY);
+		 
+		squareBoard1 = null;
+		squareBoard2 = null;
 		
-		
-		//if (sam != 0 && john != 0) {
-		//System.out.print(sam + "\n" + john + "\n");
-		//System.out.print("\n" + dood + "\n" + bro);	
-		
-		squareBoard.PiecePosition = bro;
-		//squareBoard.PiecePosition = dood;
-		
-		//}
 	}
  }
