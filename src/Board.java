@@ -1,18 +1,19 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Board implements ActionListener {	
 	private JFrame frame = new JFrame();
 	private JPanel backBoard = new JPanel();
 	
 	Square[] SquareBoard = new Square[65];
-	Square SquareTemp1;
-	Square SquareTemp2;
+	Square[] SquareTemp1 = new Square[2];
 	
 	private int x = 0;
 	private int y = 0;
-	int Count = 1;
+	int Count = 0;
 	
 	private int SquareColour = 0; 
 	private int counter = 1;
@@ -43,7 +44,6 @@ public class Board implements ActionListener {
 			frame.setVisible(true);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );
 			
-			
 			}
 
 			
@@ -55,30 +55,17 @@ public class Board implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		for(int i = 1; i < SquareBoard.length; i++) {
 			if(e.getSource() == SquareBoard[i].getButton()) {
-				if (Count == 2) {
+					SquareTemp1[Count] = SquareBoard[i];
+					Count++;
 					
-					SquareTemp2 = SquareBoard[i];
-					Square.MoveTo(SquareTemp1, SquareTemp2);
-					Count = 1;
-					break;
-				}
-				else
-				{
-					//Count++;
-				}
-
-				if (Count == 1) {
-					
-					SquareTemp1 = SquareBoard[i];
-					Count = 2;
-				}
-				
-				System.out.print(Count);
+					if (Count == 2){
+					Square.MoveTo(SquareTemp1[0], SquareTemp1[1]);
+					Count = 0;
+					}
 			}
 		}
 	}
-	
 }
-	

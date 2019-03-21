@@ -70,18 +70,7 @@ public class Square {
 	CheckerBoard = new JButton(RedPiece);
 	
 	}
-	
-	public int GetX() {
 		
-		return positionX;
-		
-	}
-	
-	public int GetY() {
-		
-		return positionY;
-		
-	}	
 	public JButton getButton() {
 		
 		return CheckerBoard;
@@ -95,25 +84,23 @@ public class Square {
 	}
 
 	public static void MoveTo(Square squareBoard1, Square squareBoard2) {
-		 int SB1Pp = 0; 
-		 int SB2Pp = 0;
-		 int SB1PosX = 0;
-		 int SB1PosY = 0;
-		 int SB2PosX = 0;
-		 int SB2PosY = 0;
-		 
-		 
-		SB1PosX = squareBoard1.positionX;
-		SB1PosY = squareBoard1.positionY;
-		
-		SB2PosX = squareBoard2.positionX;
-		SB2PosY = squareBoard2.positionY;	
-				
-		squareBoard2.CheckerBoard.setLocation(SB1PosX, SB1PosY);
-		squareBoard1.CheckerBoard.setLocation(SB2PosX, SB2PosY);
-		 
-		squareBoard1 = null;
-		squareBoard2 = null;
-		
+
+		if (squareBoard2.PiecePosition + 7 == squareBoard1.PiecePosition || squareBoard2.PiecePosition + 9 == squareBoard1.PiecePosition) {
+			
+			if (squareBoard1.BoardStatus == 3) {
+				ImageIcon White = new ImageIcon("C:/Users/Samuel Cotton/Documents/Uni/SCC110/Term2/Practicals/Assignment2/Git/pieces/empty.png");
+				squareBoard1.CheckerBoard.setIcon(White);
+				squareBoard1.BoardStatus = 2;
+			}
+
+			if (squareBoard2.BoardStatus == 2) {
+			ImageIcon WhitePiece = new ImageIcon("C:/Users/Samuel Cotton/Documents/Uni/SCC110/Term2/Practicals/Assignment2/Git/pieces/white.png");
+			squareBoard2.CheckerBoard.setIcon(WhitePiece);
+			squareBoard2.BoardStatus = 3;
+			}
+			
+			System.out.print("The New Piece Positions " + "\n \n" + squareBoard1.BoardStatus + "\n" + squareBoard2.BoardStatus + "\n" );
+			
+			}
+		} 	
 	}
- }
