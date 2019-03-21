@@ -10,6 +10,7 @@ public class Board implements ActionListener {
 	
 	Square[] SquareBoard = new Square[65];
 	Square[] SquareTemp1 = new Square[2];
+	Square[] SquareTemp2 = new Square[2];
 	
 	private int x = 0;
 	private int y = 0;
@@ -59,8 +60,8 @@ public class Board implements ActionListener {
 		for(int i = 1; i < SquareBoard.length; i++) {
 			if(e.getSource() == SquareBoard[i].getButton()) {
 					SquareTemp1[Count] = SquareBoard[i];
+
 					Count++;
-					
 					if (Count == 2){
 					Square.MoveTo(SquareTemp1[0], SquareTemp1[1]);
 					Count = 0;
